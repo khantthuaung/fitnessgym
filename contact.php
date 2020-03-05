@@ -1,3 +1,9 @@
+<?php session_start();
+
+
+
+require_once 'auth/connect.php'; ?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -96,109 +102,96 @@
              </div>
              <div class="col-md-4 contact-top_right">
 			  <h3>contact info</h3>
-			  <p>diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis.</p>
+			  
 			  <ul class="contact_info">
-			  	<li><i class="mobile"> </i><span>+1-900-235-2456</span></li>
-			  	<li><i class="message"> </i><span class="msg">info(at)gym.com</span></li>
+			  	<li><i class="mobile"> </i><span>+959 768677143</span></li>
+			  	<li><i class="message"> </i><span class="msg">fitnessgymservice@gmail.com</span></li>
 			  </ul>
 	 		 </div>
       	  </div>
         </div>
-         <div class="trainers_middle_bottom">
-		 	<div class="container">
-			  <div class="col-md-4">
-		       <div class="contact_hours">
-				 <ul class="times_contact">
-				 	<h3>Opening <span class="opening">Hours</span></h3>
-				 	<li><i class="calender"> </i><span class="contact_week">Monday</span><div class="hours1">h.6:00-h.24:00</div>  <div class="clear"></div></li>
-				 	<li><i class="calender"> </i><span class="contact_week">Tuesday</span><div class="hours1">h.6:00-h.24:00</div>  <div class="clear"></div></li>
-				 	<li><i class="calender"> </i><span class="contact_week">Wednesday</span><div class="hours1">h.6:00-h.24:00</div>  <div class="clear"></div></li>
-				 	<li><i class="calender"> </i><span class="contact_week">Thrusday</span><div class="hours1">h.6:00-h.24:00</div>  <div class="clear"></div></li>
-				 	<li><i class="calender"> </i><span class="contact_week">Friday</span><div class="hours1">h.6:00-h.24:00</div>  <div class="clear"></div></li>
-				 	<li><i class="calender"> </i><span class="contact_week">Saturday</span><div class="hours1">h.6:00-h.24:00</div>  <div class="clear"></div></li>
-				 	<li><i class="calender"> </i><span class="contact_week">Sunday</span><div class="hours1">h.6:00-h.24:00</div>  <div class="clear"></div></li>
-				    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</p>
-				 	<h4>Enjoy it!</h4>
-				 </ul>
-		       </div>
-            </div>
-           <div class="col-md-4">
-     	 <h3 class="m_2">Next Events</h3>
-     	 <div class="events">
-     	 	<div class="event-top">
-	     	 	<ul class="event1">
-	     	 		<h4>26 April, 2020</h4>
-	     	 		<img src="images/pic.jpg" alt="">
-	     	 	</ul>
-	     	 	<ul class="event1_text">
-	     	 		<span class="m_5">h.12.00-h.13.00</span>
-	     	 		<h4>Aerobics</h4>
-	     	 		<p>Lorem ipsum dolor sit. </p>
-	     	 		<div class="btn2">
-					   <a href="#">Reservation</a>
-					</div>
-	     	 	</ul>
-     	 		<div class="clear"></div>
-     	 	</div>
-     	 	<div class="event-bottom">
-	     	 	<ul class="event1">
-	     	 		<h4>26 April, 2020</h4>
-	     	 		<img src="images/pic.jpg" alt="">
-	     	 	</ul>
-	     	 	<ul class="event1_text">
-	     	 		<span class="m_5">h.12.00-h.13.00</span>
-	     	 		<h4>Spinning</h4>
-	     	 		<p>Lorem ipsum dolor sit amet, consectetuer. </p>
-	     	 		<div class="btn2">
-					    <a href="#">Reservation</a>
-					</div>
-	     	 	</ul>
-     	 		<div class="clear"></div>
-     	 	</div>
-     	 </div>
+        
      </div>
+     <div class="container">
+		    
+		 
+		   
+		    <div class="row content_middle_bottom">
+			  <div class="col-md-4">
+		        <h3 class="m_2" id="trainers">Our Trainers</h3>
+		         <div class="course_demo">
+		          <ul id="flexiselDemo3">	
+		          	<?php $res=mysqli_query($conn,'select * from trainers');
+
+		          	while ($trainers=mysqli_fetch_assoc($res)):?>
+					<li><a href="profile-trainer.php?id=<?php echo($trainers['id']) ?>"><img src="admin/trainers/<?php echo($trainers['photo']) ?>" />
+						<div class="desc">
+						<h3><?php echo($trainers['name']) ?><br><span class="m_text"><?php echo($trainers['role']) ?></span></h3>
+						<p>FITNESS<br> GYM</p>
+						
+						<div class="clear"></div>
+					</div></li></a>
+				<?php endwhile; ?>
+		    	  	       	   	    	
+				</ul>
+				<script type="text/javascript">
+			$(window).load(function() {
+				$("#flexiselDemo3").flexisel({
+					visibleItems:4,
+					animationSpeed: 1000,
+					autoPlay: true,
+					autoPlaySpeed: 3000,    		
+					pauseOnHover: true,
+					enableResponsiveBreakpoints: true,
+			    	responsiveBreakpoints: { 
+			    		portrait: { 
+			    			changePoint:480,
+			    			visibleItems: 1
+			    		}, 
+			    		landscape: { 
+			    			changePoint:640,
+			    			visibleItems: 2
+			    		},
+			    		tablet: { 
+			    			changePoint:768,
+			    			visibleItems: 2
+			    		}
+			    	}
+			    });
+			    
+			});
+		</script>
+		<script type="text/javascript" src="js/jquery.flexisel.js"></script>
+	  </div>
+     </div>
+     
      <div class="col-md-4">
      	 <h3 class="m_2">From the blog</h3>
      	 <div class="blog_events">
+     	 	<?php $query=mysqli_query($conn, "select * from posts order by created_date"); 
+     	 	while ($row=mysqli_fetch_assoc($query)) :?>
      	 	<ul class="tab-left1">
-				<span class="tab1-img"><img src="images/pic7.jpg" alt=""></span>
+				<span class="tab1-img"><img src="admin/posts/<?php echo($row['media']) ?>" alt=""></span>
 				<div class="tab-text1">
-				 <p><a href="#">nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip</a></p>
-				 <span class="m_date">25 April, 2020</span>
+				 <p><a href="blog_single.php?id=<?php echo($row['id']) ?>"><?php echo($row['title']) ?></a></p>
+				 <span class="m_date"><?php echo($row['created_date']) ?></span>
 				</div>
 				<div class="clear"></div>
 			</ul>
-			<ul class="tab-left1">
-				<span class="tab1-img"><img src="images/pic6.jpg" alt=""></span>
-				<div class="tab-text1">
-				 <p><a href="#">soluta nobis eleifend option congue nihil imperdiet doming id</a></p>
-				 <span class="m_date">25 April, 2020</span>
-				</div>
-				<div class="clear"></div>
-			</ul>
-			<ul class="tab-last1">
-				<span class="tab1-img"><img src="images/pic8.jpg" alt=""></span>
-				<div class="tab-text1">
-				 <p><a href="#">quod mazim placerat facer possim assum. Typi non habent</a></p>
-				 <span class="m_date">25 April, 2020</span>
-				</div>
-				<div class="clear"></div>
-			</ul>
+			<?php endwhile; ?>
      	 </div>
-       </div>
-       <div class="clear"></div>
-     	<div class="contact_bottom">
-     	  <ul class="join_text">
-	     	  <h3>Why Join ? <span class="m_26"> eleifend option congue nihil</span></h3>
-	     	  <p>lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.</p>
-	      </ul>
-     	  <ul class="btn_contact">
-			 <a href="#">Join Today</a>
-		  </ul>
-		  <div class="clear"></div>
-     	</div>
-     <div class="clear"></div>
      </div>
+     <div class="col-md-4">
+				  <h3 class="m_4">Membership Prices</h3>
+				  <div class="members">
+				   <h4 class="m_3">Fair Prices of for all members</h4>
+				   <p>Services and <br>treatments at the GymBase for<br> all membership cards holders.</p>
+				   <div class="btn1">
+				    <a href="pricing.php">More</a>
+			       </div>
+				  </div>
+			    </div>
+     <div class="clear"></div>
      </div>
      <div class="about_gallery">
 		 	<div class="container">
@@ -277,12 +270,7 @@
 		  </div>
     </div>
      <div class="footer-top">
-		 	<ul class="twitter_footer">
-		 	 <li>
-		 	   <i class="twt_icon"> </i><p>aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel  <span class="m_6">2 days ago</span></p>
-		 	   <div class="clear"></div>
-		 	 </li>
-		 	</ul>
+		 
 		 </div>
 		 <div class="footer-bottom">
 		   <div class="container">
