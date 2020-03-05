@@ -114,172 +114,93 @@
 		 		</ul>
 		 	 </div>
 		 	 <?php endwhile; ?>
-		 	 <!-- <div id="small-dialog" class="mfp-hide">
-									<div class="pop_up">
-									 	<div class="payment-online-form-left">
-											<form>
-												<h4><span class="shipping"> </span>Shipping</h4>
-												<ul>
-													<li><input class="text-box-dark" type="text" value="Frist Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Frist Name';}"></li>
-													<li><input class="text-box-dark" type="text" value="Last Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Last Name';}"></li>
-												</ul>
-												<ul>
-													<li><input class="text-box-dark" type="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}"></li>
-													<li><input class="text-box-dark" type="text" value="Company Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Company Name';}"></li>
-												</ul>
-												<ul>
-													<li><input class="text-box-dark" type="text" value="Phone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Phone';}"></li>
-													<li><input class="text-box-dark" type="text" value="Address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Address';}"></li>
-													<div class="clear"> </div>
-												</ul>
-												<div class="clear"> </div>
-											<ul class="payment-type">
-												<h4><span class="payment"> </span> Payments</h4>
-												<li>
-													<span class="col_checkbox">
-													<input id="3" class="css-checkbox1" type="checkbox">
-													<label for="3" name="demo_lbl_1" class="css-label1"> </label>
-													<a class="visa" href="#"> </a>
-													</span>
-												</li>
-												<li>
-													<span class="col_checkbox">
-														<input id="4" class="css-checkbox2" type="checkbox">
-														<label for="4" name="demo_lbl_2" class="css-label2"> </label>
-														<a class="paypal" href="#"> </a>
-													</span>
-												</li>
-												<div class="clear"> </div>
-											</ul>
-												<ul>
-													<li><input class="text-box-dark" type="text" value="Card Number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Card Number';}"></li>
-													<li><input class="text-box-dark" type="text" value="Name on card" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name on card';}"></li>
-													<div class="clear"> </div>
-												</ul>
-												<ul>
-													<li><input class="text-box-light hasDatepicker" type="text" id="datepicker" value="Expiration Date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Expiration Date';}"><em class="pay-date"> </em></li>
-													<li><input class="text-box-dark" type="text" value="Security Code" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Security Code';}"></li>
-													<div class="clear"> </div>
-												</ul>
-												<ul class="payment-sendbtns">
-													<li><input type="reset" value="Reset"></li>
-													<li><input type="submit" value="Process order"></li>
-												</ul>
-												<div class="clear"> </div>
-											</form>
-										</div>
-						  			</div>
-								</div>
-		 	  -->
+		 	 
      		<div class="clear"></div>
      	    </div>
      	  </div>
       	</div>
-      	<ul class="price_question">
-		   <div class="container">
-		 	 <li class="question_left"><h4>Have a question?</h4><p>Call now and ask you want to know!</p></li>
-		 	  <li class="question_right">+95 9768677143</li>
-		 	 <div class="clear"></div>
-		   </div>
-	    </ul>
+      	
 	    <div class="container">
-	    	<div class="row pricing">
-		      <div class="col-md-8">
-		     	 <h3 class="m_2">All Classes</h3>
-		     	 <div class="classes">
-		     	 	<div class="cardio_list">
+		    
+		 
+		   
+		    <div class="row content_middle_bottom">
+			  <div class="col-md-4">
+		        <h3 class="m_2" id="trainers">Our Trainers</h3>
+		         <div class="course_demo">
+		          <ul id="flexiselDemo3">	
+		          	<?php $res=mysqli_query($conn,'select * from trainers');
 
-
-		     	 		<?php $class=mysqli_query($conn,"select * from classes limit 4");
-		     	 		
-		     	 				while($row=$row=mysqli_fetch_assoc($class)):?>
-		     	 	  <div class="cardio_sublist">
-			     	 	<ul class="cardio">
-			     	 		<li><i class="clock"> </i><span><?php echo $row['name']; ?></span></li>
-			     	 	</ul>
-			     	 	<div class="social-media">
-						     <ul>
-						        <li> <span class="simptip-position-bottom simptip-movable" data-tooltip="timetable"><a href="#" target="_blank"> </a></span></li> 
-						    </ul>
-					   </div>
-			     	 	<div class="clear"></div>
-		     	 	  </div>
-<?php endwhile; ?>
-</div>
-		     	 	  
-		     	 	 <div class="cardio_list">
-
-		     	 	 	<?php 
-		     	 	 	$class2=mysqli_query($conn,"select * from classes order by id desc limit 4");
-		     	 	 	while ($row=mysqli_fetch_assoc($class2)): ?>
-		     	 	  <div class="cardio_sublist">
-			     	 	<ul class="cardio">
-			     	 		<li><i class="clock"> </i><span><?php echo $row['name']; ?></span></li>
-			     	 	</ul>
-			     	 	<div class="social-media">
-						     <ul>
-						        <li> <span class="simptip-position-bottom simptip-movable" data-tooltip="timetable"><a href="#" target="_blank"> </a></span></li>
-						        
-						    </ul>
-					   </div>
-			     	 	<div class="clear"></div>
-		     	 	  </div>
-		     	 	<?php endwhile; ?>
-		     	 	  <!-- <div class="cardio_sublist">
-			     	 	<ul class="cardio">
-			     	 		<li><i class="clock"> </i><span>Kick Boxing</span></li>
-			     	 	</ul>
-			     	 	<div class="social-media">
-						     <ul>
-						        <li> <span class="simptip-position-bottom simptip-movable" data-tooltip="timetable"><a href="#" target="_blank"> </a></span></li>
-						        
-						    </ul>
-					   </div>
-			     	 	<div class="clear"></div>
-		     	 	  </div>
-		     	 	  <div class="cardio_sublist">
-			     	 	<ul class="cardio">
-			     	 		<li><i class="clock"> </i><span>CrossFit</span></li>
-			     	 	</ul>
-			     	 	<div class="social-media">
-						     <ul>
-						        <li> <span class="simptip-position-bottom simptip-movable" data-tooltip="timetable"><a href="#" target="_blank"> </a></span></li>
-						        
-						    </ul>
-					   </div>
-			     	 	<div class="clear"></div>
-		     	 	  </div>
-		     	 	   <div class="cardio_sublist">
-			     	 	<ul class="cardio">
-			     	 		<li><i class="clock"> </i><span>Yoga</span></li>
-			     	 	</ul>
-			     	 	<div class="social-media">
-						     <ul>
-						        <li> <span class="simptip-position-bottom simptip-movable" data-tooltip="timetable"><a href="#" target="_blank"> </a></span></li>
-						        
-						    </ul>
-					   </div>
-			     	 	<div class="clear"></div>
-		     	 	  </div> -->
-
-
-		     	 	</div>
-		     	 	<div class="clear"></div>
-		     	 </div>
+		          	while ($trainers=mysqli_fetch_assoc($res)):?>
+					<li><a href="profile-trainer.php?id=<?php echo($trainers['id']) ?>"><img src="admin/trainers/<?php echo($trainers['photo']) ?>" />
+						<div class="desc">
+						<h3><?php echo($trainers['name']) ?><br><span class="m_text"><?php echo($trainers['role']) ?></span></h3>
+						<p>FITNESS<br> GYM</p>
+						
+						<div class="clear"></div>
+					</div></li></a>
+				<?php endwhile; ?>
+		    	  	       	   	    	
+				</ul>
+				<script type="text/javascript">
+			$(window).load(function() {
+				$("#flexiselDemo3").flexisel({
+					visibleItems:4,
+					animationSpeed: 1000,
+					autoPlay: true,
+					autoPlaySpeed: 3000,    		
+					pauseOnHover: true,
+					enableResponsiveBreakpoints: true,
+			    	responsiveBreakpoints: { 
+			    		portrait: { 
+			    			changePoint:480,
+			    			visibleItems: 1
+			    		}, 
+			    		landscape: { 
+			    			changePoint:640,
+			    			visibleItems: 2
+			    		},
+			    		tablet: { 
+			    			changePoint:768,
+			    			visibleItems: 2
+			    		}
+			    	}
+			    });
+			    
+			});
+		</script>
+		<script type="text/javascript" src="js/jquery.flexisel.js"></script>
+	  </div>
+     </div>
+     
+     <div class="col-md-4">
+     	 <h3 class="m_2">From the blog</h3>
+     	 <div class="blog_events">
+     	 	<?php $query=mysqli_query($conn, "select * from posts order by created_date"); 
+     	 	while ($row=mysqli_fetch_assoc($query)) :?>
+     	 	<ul class="tab-left1">
+				<span class="tab1-img"><img src="admin/posts/<?php echo($row['media']) ?>" alt=""></span>
+				<div class="tab-text1">
+				 <p><a href="blog_single.php?id=<?php echo($row['id']) ?>"><?php echo($row['title']) ?></a></p>
+				 <span class="m_date"><?php echo($row['created_date']) ?></span>
 				</div>
-				<div class="col-md-4">
+				<div class="clear"></div>
+			</ul>
+			<?php endwhile; ?>
+     	 </div>
+     </div>
+     <div class="col-md-4">
 				  <h3 class="m_4">Membership Prices</h3>
 				  <div class="members">
-				   <h4 class="m_3">25% Discount of for all members</h4>
-				   <p>Discount on services and <br>treatments at the GymBase for<br> all membership cards holders.</p>
+				   <h4 class="m_3">Fair Prices of for all members</h4>
+				   <p>Services and <br>treatments at the GymBase for<br> all membership cards holders.</p>
 				   <div class="btn1">
-				    <a href="#">More</a>
+				    
 			       </div>
 				  </div>
 			    </div>
-			    <div class="clear"></div>
-			</div>
-	    </div>
+     <div class="clear"></div>
+     </div>
 	    <div class="about_gallery">
 		 	<div class="container">
 		 	  <div class="col-md-8">
